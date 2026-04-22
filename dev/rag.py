@@ -38,12 +38,18 @@ while True:
     # se aproximam semanticamente da 'pergunta' do usuário.
     
     # resultados = colecao_documentos.query(...)
-    
+
     # textos_recuperados = resultados['documents'][0]
+    
     # contexto_unido = " ".join(textos_recuperados)
     
     # -> Apague esse contexto falso e use a lógica de busca acima:
-    contexto_unido = "CONTEXTO FALSO PARA TESTE." 
+
+    resultados = colecao_documentos.query(query_texts = [pergunta])
+    
+    textos_recuperados = resultados['documents'][0]
+
+    contexto_unido = " ".join(textos_recuperados)
 
     print(f"\nDocumentos encontrados pelo Banco Vetorial: \n{contexto_unido}\n")
 
@@ -64,15 +70,15 @@ while True:
     # ----------------------------------------------------------------
     # TODO 3: GERAÇÃO
     # ----------------------------------------------------------------
-    # resposta = cliente_ia.chat.completions.create(
-    #     model="gpt-4o-mini", 
-    #     temperature=0.1,
-    #     messages=[
-    #         {"role": "system", "content": prompt_sistema},
-    #         {"role": "user", "content": pergunta}
-    #     ]
-    # )
+    resposta = cliente_ia.chat.completions.create(
+        model="gpt-4o-mini", 
+        temperature=0.1,
+        messages=[
+            {"role": "system", "content": prompt_sistema},
+            {"role": "user", "content": pergunta}
+        ]
+    )
     
-    # print(f"Resposta da IA: {resposta.choices[0].message.content}\n")
+    print(f"Resposta da IA: {resposta.choices[0].message.content}\n")
     
-    print("-" * 50)
+print("-" * 50)
