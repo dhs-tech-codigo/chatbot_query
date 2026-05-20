@@ -5,3 +5,5 @@ streamlit
 pydantic
 chromadb
 openpyxl
+PyPDF2
+pdfplumber
