@@ -7,3 +7,4 @@ chromadb
 openpyxl
 PyPDF2
 pdfplumber
+requests
